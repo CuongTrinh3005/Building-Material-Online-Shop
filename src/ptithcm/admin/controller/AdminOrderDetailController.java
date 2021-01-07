@@ -59,6 +59,8 @@ public class AdminOrderDetailController {
 		finally {
 			session.close();
 		}
-		return "redirect:/admin/order/detail/index.htm";
+		
+		return "redirect:/admin/order/detail/" + orderId + ".htm";
+//		return "redirect:/admin/order/detail/index.htm";
 	}
 }

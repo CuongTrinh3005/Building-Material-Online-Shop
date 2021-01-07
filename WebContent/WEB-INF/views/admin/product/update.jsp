@@ -73,6 +73,7 @@
 						<label>Discount: </label>
 						<br>
 						<form:input path="discount"/>
+						<form:errors path="discount"></form:errors>
 					</div>
 					
 					<div class="form-group">

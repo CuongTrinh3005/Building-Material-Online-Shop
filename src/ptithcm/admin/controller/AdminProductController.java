@@ -52,7 +52,9 @@ public class AdminProductController {
 	
 	@RequestMapping(value="insert", method=RequestMethod.GET)
 	public String insert(ModelMap model){
-		model.addAttribute("product", new Product());
+		Product product = new Product();
+		product.setDateIn(new Date());
+		model.addAttribute("product", product);
 		return "admin/product/insert";
 	}
 	
@@ -169,6 +171,15 @@ public class AdminProductController {
 		Transaction transaction = session.beginTransaction();
 		try{
 			session.evict(product);
+			if(product.getDiscount() == null){
+				product.setDiscount((float) 0.0);
+			}
+			if(product.getViewCount()==null){
+				product.setViewCount(0);
+			}
+			if(product.getQuantity()==null){
+				product.setQuantity(1);
+			}
 			session.update(product);
 			transaction.commit();
 			model.addAttribute("message", "Update product successfully!");

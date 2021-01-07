@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -31,6 +33,8 @@ public class Product implements Serializable{
 	@NotNull(message="Không được để trống đơn giá")
 	private Float unitPrice;
 	private Integer quantity;
+	@DecimalMin(value="0", message="Không giảm giá dưới 0%!")
+	@DecimalMax(value="0.7", message="Không giảm giá quá 70% !")
 	private Float discount;
 //	String categoryId;
 	private String donViTinh;

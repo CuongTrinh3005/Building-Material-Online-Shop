@@ -209,19 +209,23 @@ public class OrderController {
 	}
 	
 	public String prepareContent(List<OrderDetail> details, Date date, float totalCost){
+		Session session = factory.getCurrentSession();
 		String body = "You have an order on " + date.toString() + " with details: <br>";
 		body += "<br>";
 		body += "Mã đơn đặt hàng: " + details.get(0).getOrderDetailID().getOrderId() + "<br>";
 		body += "<br>";
 		for (OrderDetail detail : details) {
-			body += "Tên sản phẩm: " + detail.getOrderDetailID().getProductId() + "<br>";
+			body += "Mã sản phẩm: " + detail.getOrderDetailID().getProductId() + "<br>";
+			body += "<br>";
+			Product product = (Product) session.get(Product.class, detail.getOrderDetailID().getProductId());
+			body += "Tên sản phẩm: " + product.getName() + "<br>";
 			body += "<br>";
 			body += "Số lượng: " + detail.getQuantityOrder() + "<br>";
 			body += "<br>";
 			body += "Đơn giá: " + detail.getUnitPrice() + " VNĐ <br>";
 			body += "<br>";
 			if(detail.getDiscount() > 0){
-				body += "Tên sản phẩm: " + detail.getDiscount() + "<br>";
+				body += "Giảm giá: " + detail.getDiscount() + "<br>";
 				body += "<br>";
 			}
 			body += "----------------------------------------------------------- <br>";

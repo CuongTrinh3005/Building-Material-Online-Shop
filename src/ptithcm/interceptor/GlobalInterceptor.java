@@ -56,5 +56,12 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter{
 			request.setAttribute("num_items", num);
 			request.setAttribute("cost", cost);
 		}
+		
+		// User Info
+		if(user != null){
+			String name = user.getName();
+//			System.out.println("Name of log in user: " + name);
+			request.setAttribute("nameUser", name);
+		}
 	}
 }

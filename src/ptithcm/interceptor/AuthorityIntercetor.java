@@ -4,7 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import ptithcm.entity.Customer;
 
 public class AuthorityIntercetor extends HandlerInterceptorAdapter{
 
@@ -17,7 +20,7 @@ public class AuthorityIntercetor extends HandlerInterceptorAdapter{
 			response.sendRedirect(request.getContextPath()+"/account/login.htm");
 			return false;
 		}
+		
 		return true;
 	}
-	
 }

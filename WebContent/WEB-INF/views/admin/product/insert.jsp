@@ -70,9 +70,10 @@
 					</div>
 					
 					<div class="form-group">
-						<label>Discount: </label>
+						<label>Discount: (10% -> 0.1)</label>
 						<br>
 						<form:input path="discount"/>
+						<form:errors path="discount"/>
 					</div>
 					
 					<div class="form-group">

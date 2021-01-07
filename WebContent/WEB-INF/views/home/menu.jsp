@@ -43,5 +43,9 @@
       </li>
     </ul>
     
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="account/update.htm"><span class="glyphicon glyphicon-user"></span> Hi ${nameUser} !</a></li>
+    </ul>
+    
   </div>
 </nav>

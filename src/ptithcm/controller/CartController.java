@@ -110,7 +110,7 @@ public class CartController {
 			if(quantity > 0){
 				product.setQuantity(quantity);
 //				carList.put(id, product);
-				model.addAttribute("message", "Cleared an item in cart successfully!");
+				model.addAttribute("message", "Updated an item in cart successfully!");
 			}
 			else{
 				model.addAttribute("message", "Quantity must be greater than 0!!");
